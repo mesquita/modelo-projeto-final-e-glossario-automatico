@@ -23,10 +23,16 @@ Os glossários permitem a confecção de listas de abrevituras/acrônimos e list
  - Instalar a versão completa do [Perl](https://www.perl.org/get.html).
  - Configurar os comandos do TeXstudio.
 Option -> Configure TeXstudio -> Commands:
+
+
 **Makeindex** 
 "C:/Users/user/AppData/Local/Programs/MiKTeX 2.9/miktex/bin/x64/makeindex.exe" %.idx
+
+
 **Texindy**
 "C:/Users/user/AppData/Local/Programs/MiKTeX 2.9/miktex/bin/x64/texindy.exe" %.idx
+
+
 **Makeglossaries**
 "C:/Users/user/AppData/Local/Programs/MiKTeX 2.9/miktex/bin/x64/makeglossaries.exe" %
 
