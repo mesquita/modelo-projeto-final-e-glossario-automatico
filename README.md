@@ -12,7 +12,7 @@ O modelo aqui presente é inspirado no que está no site do [DEL](https://www.de
  
  Que permite a escrita de símbolos matemáticos de maneira bem mais simples. O uso das macros é bem intuitivo. Exemplo do uso das macros está presente na seção **1.1 Notation**. Modificações no próprio arquivo podem ser feitas para melhor atender as necessidades de cada um. 
 
-Certifique-se que **\usepackage{myMacros}** está adicionado ao **TesePack.tex** e que o arquivo **myMacros.sty** está no repositório do projeto.
+Certifique-se que **\usepackage{myMacros}** está adicionado ao `TesePack.tex` e que o arquivo **myMacros.sty** está no repositório do projeto.
 
 2. `Glossários`
 
@@ -42,7 +42,7 @@ Option -> Configure TeXstudio -> Commands:
 
 Aqui vamos fazer dois glossários: List of Symbols e List of Abbreviations.
 
-Pacote no **TesePack.tex**
+Pacote no `TesePack.tex`
 \usepackage[toc,acronym]{glossaries}
 
 Também incluir:
