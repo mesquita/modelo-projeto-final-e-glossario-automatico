@@ -1,0 +1,30 @@
+%!TeX spellcheck = en_US
+
+
+\section{Notation}
+
+
+\paragraph{}Given the matrix $\Abf \in \Cset^{M \times K}$, the notations $\Abf^{\Trm}$, $\Abf^{*}$, $\Abf^{\Hrm}$, $\Abf^{-1}$, and  $\trace{\Abf}$ stand for transpose, conjugate, Hermitian transpose,  inverse and  trace operations on $\Abf$, respectively. Matrix $\Abf$ can be represented as follows: 
+
+\begin{align*}
+\Abf &= \begin{bmatrix}
+a_{11} & a_{12} & \hdots & a_{1K} \\
+a_{21} & a_{22} & \hdots & a_{2K} \\
+\vdots & \vdots & \ddots & \vdots \\
+a_{M1} & a_{M2} & \hdots & a_{MK} 
+\end{bmatrix}, \\
+& = \begin{bmatrix} \abf_{1} \quad \abf_{2} \quad \hdots \quad \abf_{K} \end{bmatrix},
+\end{align*}
+where $\abf_{k} \in \Cset^{M \times 1}$ is the $k$th column of $\Abf$.
+
+\paragraph{}The scalar $X \in \Cset$ stands for a random variable, the vector $\xbs \in \Cset^{M \times 1}$ stands for a random vector, the scalar $x \in \Cset$ stands for a realization of $X$, and the vector $\xbf \in \Cset^{M \times 1}$ stands for a realization of $\xbs$. The notation $\expval{\xbs}$ stands for the expected value of $\xbf$. The notation $\Diag{\xrm}$ stands for the diagonal matrix composed by the elements of $\xbf$, i.e.,
+
+\begin{align*}
+\Xbf &= \Diag{\xbf}, \\
+&= \begin{bmatrix}
+x_{1} &  &  & \\
+& x_{2} & &  \\
+ & & \ddots &  \\
+ & & & x_{M} 
+\end{bmatrix}. \\
+\end{align*}

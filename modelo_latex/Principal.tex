@@ -1,0 +1,61 @@
+%!TeX spellcheck = en_US
+\documentclass[a4paper,12pt,oneside,openany]{book}	
+\input{TesePack}
+
+
+\include{abbreviations}
+
+\begin{document}
+
+\frontmatter
+\thispagestyle{empty}
+
+\input{Capa}
+
+\pagebreak           
+
+\input{Preambulo}
+
+\tableofcontents
+
+\addcontentsline{toc}{chapter}{List of Figures}
+\listoffigures
+
+
+\addcontentsline{toc}{chapter}{List of Tables}
+\listoftables
+
+
+\cleardoublepage
+\printglossary[type=\acronymtype,nonumberlist,title=List of Abbreviations]
+
+
+\glsaddall
+\printglossary[type=symbols,nonumberlist,title=List of Symbols]
+
+
+\mainmatter
+\cleardoublepage
+
+
+\chapter{Introduction}
+\label{cap1}
+\input{cap1}
+
+\chapter{Cap2}
+\label{cap2}
+\input{cap2}
+
+
+
+\normalsize
+\cleardoublepage
+\addcontentsline{toc}{chapter}{Bibliography}
+\bibliographystyle{coppe}
+\bibliography{biblio}
+
+
+
+\backmatter
+
+\end{document}

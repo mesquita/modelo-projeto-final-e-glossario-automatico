@@ -1,0 +1,190 @@
+%!TeX spellcheck = en_US
+
+This increase happens because the elements with small values in $\Hbf$ turns into large-valued ones when the matrix is inverted, and then the product with the noise vector enhances the overall additive noise. 
+
+\paragraph{}Moreover, for low \gls{snr} regime, the regularization by \gls{snr} copes with noise enhancement holding up the equalizer from introducing large gains.
+
+
+and will be appropriately defined in Section~\ref{sec:eq}.
+
+\section{Theme}
+The theme of this work is the study of \gls{ab:uwa} communication systems. Multiplies impairments degrade \gls{ab:uwa} communication, but the intersymbol interference is considered to be one of the hardest to mitigate. Channel equalization is one of the tools to solve the ISI problem, and it is the one emphasized in this project. The ISI and channel equalization are the primary focus of this work. 
+\section{Scope}
+The object of study is the channel equalization and its effects on shallow water acoustic communication systems. The implementation process of channel equalizers and its impacts on the data transmission through the underwater environment.The problem modeling intends to study linear channel equalization. Therefore nonlinear impairments are not considered.  
+
+\section{Objectives}
+
+The general objective is to study the implementation of the turbo equalizer on shallow water acoustic communication systems. Therefore, the specific objectives are, namely: (1) to study and implement the turbo equalizer on communication systems; (2) to study the modeling of underwater acoustic channels; (3) to implement computationally the channel equalizers; (4) to simulate and study the behavior of the studied models for UWA channels; (5) to compare the performance of the implemented equalizers;
+
+
+\section{Methodology}
+
+The first step of this work consists of the implementation of simple a communication system. The system has a transmitter whose output is a bandpass signal that passes through an \gls{ab:awgn} channel. The receiver does not have an equalizer, and it merely restores the transmitted message filtering the received signal with a low-pass filter.
+
+In this second part, the communication system consists now of a channel that introduces \gls{ab:isi} on the transmitted signal. Therefore, to mitigate the \gls{ab:isi}, the receiver is equipped with an equalizer. The equalizer is the main tool used to mitigate the \gls{ab:isi} in this work. Three equalizers are employed in the second part of this project, namely: \gls{ab:zfe}, the \gls{ab:mmsee}, and \gls{ab:dfe}.
+
+The main point of this work is to study and implement an equalization method, called \gls{ab:te}. The \gls{ab:te} is an iterative equalization method that exchanges soft information with the decoder increasing the equalization performance. The \gls{ab:te} implemented in this work is a suboptimal linear solution, which has a lower computational complexity when compared to other solutions. 
+
+The implemented systems performance analyses intend to show how is the impact of the \gls{ab:te}. The \gls{ab:te} performance is compared, using \gls{ab:ber} as a figure of merit, to the \gls{ab:zfe}, \gls{ab:mmsee} and \gls{ab:dfe}.
+
+\begin{equation}
+\Wbf _ {\mathrm{MMSE}} = \argmin_{ \Wbf \in \Cset^{N \times M}} \expval{\norm{\xbs - \Wbf \left(\Hbf \xbs + \nbs \right) }{2}^{2}},
+\end{equation}
+
+
+\begin{figure}[!h]
+	\centering
+	\begin{subfigure}[b]{0.482\textwidth}
+		\includegraphics[width=\textwidth]{figs/cap2/salinityDepth}
+		\caption{$K_{p} = 0.1$}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[b]{0.482\textwidth}
+		\includegraphics[width=\textwidth]{figs/cap2/temperatureDepth}
+		\caption{$K_{p} = 0.5$}
+	\end{subfigure}
+\end{figure}
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=0.7\linewidth]{figs/cap2/salinityDepth}
+	\caption{Salinity as function of the depth.}
+	\label{fig:salinitydepth}
+\end{figure}
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=0.7\linewidth]{figs/cap2/temperatureDepth}
+	\caption{Temperature as function of the depth.}
+	\label{fig:temperaturedepth}
+\end{figure}
+
+\begin{figure}[!h]
+	\centering
+	\subfloat[Original]{\includegraphics[width=0.23\linewidth]{figs/cap2/salinityDepth}}
+	\label{fig:star}
+	~
+	\subfloat[ZF]{\includegraphics[width=0.23\linewidth]{figs/cap2/temperatureDepth}}
+	\label{fig:star10_zf}
+	\caption{Comparison of steady state results (a) x method (b) y method}
+\end{figure}
+
+\begin{figure}[!h]
+	\centering
+	\begin{subfigure}[b]{0.48\textwidth}
+		\includegraphics[width=\textwidth]{figs/cap2/salinityDepth}
+		\label{fig:salinityDepth}
+		\caption{$K_{p} = 0.1$}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[b]{0.48\textwidth}
+		\includegraphics[width=\textwidth]{figs/cap2/temperatureDepth}
+		\caption{$K_{p} = 0.5$}
+		\label{fig:temperatureDepth}
+	\end{subfigure}
+\end{figure}
+
+%% FUNCIONANDO ESSA DAQUI USANDO SUBFLOAT:
+
+\begin{figure}[!h]
+	\centering
+	\subfloat[Salinity vs Depth]{\includegraphics[width=0.482\linewidth]{figs/cap2/salinityDepth}\label{fig:salinityDepth}}
+	~
+	\subfloat[Temperature vs Depth]{\includegraphics[width=0.482\linewidth]{figs/cap2/temperatureDepth}	\label{fig:temperatureDepth}}
+	\caption{Salinity and temperature varying with depth.}
+\end{figure}
+
+It is important to note that geometric spreading is frequency-independent.
+
+\paragraph{}In this work, the sound speed profile considered is the one depicted in Figure~\ref{fig:shallowRays}. All the mathematical models developed in the next sections consider a sound velocity approximately constant. Reflections from both sea floor and surface generate the multipath studied. It is important to note that the multiple paths may vary with time, due to changes in the environment or movement in the relative positions of the source and receiver. 
+
+
+\section{Acoustic Propagation Models}
+\paragraph{}The following wave equation can describe the propagation model of a tridimensional underwater acoustic wave
+\begin{equation}\label{eq:waveEquation}
+\nabla ^{2}_{x}p(\xbf,t) = \frac{1}{c^{2}(\xbf)}\frac{\partial^{2}p(\xbf,t)}{\partial t^{2}},
+\end{equation}
+where $\xbf \in \Rset^{3 \times 1}$ represents the coordinates of a point in water, $p(\xbf,t) \in \Rset$ is the sound pressure given a point $\xbf$ in an instant $t \in \Rset$, $c(\xbf) \in \Rset$ is the sound speed in water, and $\nabla ^{2}_{x} $ represents the Laplacian operator. For a sinusoidal wave of frequency $f_{0}$, the wave equation \eqref{eq:waveEquation} turns into the Helmholtz equation~\cite{ShengliZhou2014,Lurton2010},
+\begin{equation}\label{eq:helmholtzEquation}
+\nabla ^{2}_{x}\underline{p}(\xbf) + k^{2}\underline{p}(\xbf) = 0, 
+\end{equation}
+where $\underline{p}(\xbf)$ is the pressure phasor and $k(\xbf) = 2\pi f_{0}/c(\xbf)$ is the wave number.
+\paragraph{}Even though the \eqref{eq:helmholtzEquation} looks simple, finding an analytical solution may be an infeasible task. Depending on applications, several standard solutions are available to characterize the acoustic field. For example, ray theory using BELLHOP~\cite{PORTER1994} or TRACEO~\cite{Ey2012}, normal mode solutions using KRAKEN~\cite{Porter1992}, wave number integration~\cite{Schmidt2011}, and parabolic approximation~\cite{Smith2001,Senne2012}.
+
+For a channel which is \textit{time-invariant} within a particular time interval, the channel transfer functions at frequency $F$ can be described as
+\begin{equation}\label{eq:transFunctionChannel}
+H(F) = \sum_{p=1}^{N_{pa}} \frac{1}{\sqrt{P_{att}(F,D_{p}) }} e^{-j2\pi F \tau_{p}}.
+\end{equation}
+\paragraph{}The channel transfer function in \eqref{eq:transFunctionChannel} exposes that the overall channel attenuation is dependent not only on the distance but also on the frequency. Since $\alpha(F)$ increases as $F$ increases, high-frequency waves will be considerably attenuated within a short distance, while low-frequency acoustic waves can travel far. As a result, the bandwidth is extremely limited for long-range applications, while for short-range applications, several tens of kHz bandwidth could be available. A thorough study on the relationship between bandwidth and distance is reported in~\cite{Stojanovic2007}.
+
+%\begin{equation}
+%h(\tau) = \sum_{p=1}^{N_{\textrm{pa}}} a_{p}\delta(\tau- \tau_{p})  \quad t \in \left[0,T_{\textrm{bl}}\right).
+%\end{equation}
+
+\begin{align}
+e[k] &= x\left[k+F-1-\Delta\right] -z[k] \nonumber \\ 
+& = x[k + F - 1- \Delta] - \sum_{f \in \Fcal} w_{\frm}^{*}[-f]y[k+f] + \sum_{b \in \Bcal} w_{\brm}^{*}
+[b]x[k+F-1-\Delta-b] \nonumber \\ 
+& = \begin{bmatrix} \zerobf_{1 \times \Delta} ~ 1 ~ b^{*}[1] ~ \dots ~ b^{*}[B] ~ \zerobf_{1 \times S}  \end{bmatrix} \xbf[k] - \begin{bmatrix} w^{*}[-(F-1)] ~\dots~ w^{*}[0] \end{bmatrix}\ybf[k] \label{eq:SfirstTime}\\
+&= \tilde{\wbf}_{\brm}^{\Hrm}\xbf[k] - \wbf_{\frm}^{\Hrm}\ybf[k], \label{eq:ek}
+\end{align}
+where
+\begin{equation}
+\xbf[k] = [ \, x[k+F-1] ~ x[k+F] ~ \cdots ~ x[k-\nu] \,]^{\Trm},
+\end{equation}
+is the correct symbol vector at instant $k$, where $\nu = L - 1$,
+\begin{equation}
+\ybf[k]= [ \, y[k+F-1] ~ y[k+F] ~ \cdots ~ y[k] \,]^{\Trm},
+\end{equation}  
+the received symbol vector at instant $k$.
+
+
+
+
+\begin{align}
+e[k] &= x\left[k+F-1-\Delta\right] -z[k] \nonumber \\ 
+& = x[k + F - 1- \Delta] - \sum_{f \in \Fcal} w_{\frm}^{*}[-f]y[k+f] + \sum_{b \in \Bcal} w_{\brm}^{*}
+[b]x[k+F-1-\Delta-b] \nonumber \\ 
+& = \begin{bmatrix} \zerobf_{1 \times \Delta} ~ 1 ~ b^{*}[1] ~ \dots ~ b^{*}[B] ~ \zerobf_{1 \times S}  \end{bmatrix} \begin{bmatrix} x[k+F-1] \\ x[k+F] \\ \vdots \\ x[k-\nu] \end{bmatrix} - \begin{bmatrix} w^{*}[-(F-1)] ~\dots~ w^{*}[0] \end{bmatrix} \begin{bmatrix}  y[k+F-1] \\ y[k+F] \\ \vdots \\ y[k] \end{bmatrix} \label{eq:SfirstTime}\\
+&= \tilde{\wbf}_{\brm}^{\Hrm}\xbf[k] - \wbf_{\frm}^{\Hrm}\ybf[k], \label{eq:ek}
+\end{align}
+
+
+
+\begin{equation} \label{eq:MSE_Rxy}
+\xi = \tilde{\wbf}_{\brm}^{\Hrm} \Rbf_{x/y}^{\perp}\tilde{\wbf}_{\brm},
+\end{equation}
+
+
+\begin{equation}
+\Wbf _ {\mathrm{MMSE}} = \argmin_{ \Wbf \in \Cset^{N \times M}} J(\Wbf)
+\end{equation}
+where 
+\begin{equation} \label{eq:expvalerrorMMSE}
+J(\Wbf) = \expval{\norm{\xbs - \hat{\xbs} }{2}^{2}}.
+\end{equation}
+
+For example, if the channel has a spectral null containing only background noise in its frequency response, the \gls{zfe} attempts to compensate for this by introducing a large gain at that frequency. 
+
+Moreover, for low \gls{snr} regime, the regularization by \gls{snr} copes with noise enhancement holding up the equalizer from introducing large gains when the channel has a signal spectral null in its frequency response.
+
+
+\begin{align} 
+J(\xbfh) &= \norm{\ybf - \Hbf \xbfh }{2}^{2}  \nonumber \\ 
+&= (\ybf - \Hbf \xbfh)^{\Hrm}(\ybf - \Hbf \xbfh) \nonumber \\
+&= (\ybf^{\Hrm} - \xbfh ^{\Hrm} \Hbf^{\Hrm} )(\ybf - \Hbf \xbfh) \nonumber  \\
+&= \ybf^{\Hrm}\ybf - \ybf^{\Hrm} \Hbf\xbfh - \xbfh ^{\Hrm} \Hbf^{\Hrm}\ybf + \xbfh ^{\Hrm} \Hbf^{\Hrm}\Hbf \xbfh \nonumber \\
+&= \ybf^{\Hrm}\ybf  - 2 \ybf^{\Hrm} \Hbf\xbfh + \xbfh ^{\Hrm} \Hbf^{\Hrm}\Hbf \xbfh \label{eq:jZF}
+\end{align} 
+Minimizing \eqref{eq:jZF} by $\partial J(\xbfh)/\partial\xbfh^{*} = 0$
+\begin{align}
+&\frac{\partial J(\xbfh)}{\partial \xbfh^{*}} =   0 \nonumber \\
+& 2\Hbf^{\Hrm}\ybf + 2\Hbf^{\Hrm}\Hbf \xbfh = 0 \nonumber \\
+&\Hbf^{\Hrm}\Hbf \xbfh  = \Hbf^{\Hrm}\ybf \nonumber \\
+&\xbfh  = (\Hbf ^{\Hrm} \Hbf )^{-1} \Hbf ^{\Hrm}\ybf
+\end{align}
+Therefore, the estimated data block $\xbfh$ is given
+\begin{equation}
+\xbfh =  \underbrace{(\Hbf ^{\Hrm} \Hbf )^{-1} \Hbf ^{\Hrm}}_{\Wbf_ {\textrm{ZF}}} \ybf.
+\end{equation}
+
