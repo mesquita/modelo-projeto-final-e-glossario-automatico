@@ -36,7 +36,7 @@ Option -> Configure TeXstudio -> Commands:
 **Makeglossaries**
 "C:/Users/user/AppData/Local/Programs/MiKTeX 2.9/miktex/bin/x64/makeglossaries.exe" %
 
-(agora não tenho certeza se essa última parte é realmente necessária, mas acho que sim. E cada computador vai ter um **caminho diferente** pro MiKTeX [tô assumindo que tá todo mundo usando o MiKTeX])
+(agora não tenho certeza se essa última parte é realmente necessária, mas acho que sim. E cada computador vai ter um **caminho diferente** pro MiKTeX [tô assumindo que tá todo mundo usando o MiKTeX]).
 
  - Colocar os pacotes necessários no TesePack.tex
 
@@ -58,7 +58,7 @@ Para o List of Symbols
 \glsaddall
 \printglossary[type=symbols,nonumberlist,title=List of Symbols]
 
-Estas são as declarações necessárias no Principal.tex para que eles sejam exibidos em forma de lista. 
+Estas são as declarações necessárias no `Principal.tex` para que eles sejam exibidos em forma de lista. 
 
 O \glsaddall é usado para adicionar todos os símbolos que eu adicionar no `abbreviations.tex` (lugar que eu usei para declarar os acrônimos e os símbolos, você pode criar arquivos separados para cada um, mas lembre-se de dar include do arquivo no Principal.tex) e não necessariamente eu preciso usar o símbolo durante o texto para que ele apareça na lista de símbolos.
 
